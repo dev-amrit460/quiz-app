@@ -133,7 +133,7 @@ function Frame() {
         </div></div>:<div className="random"><div class="form-check">
           <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[i].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios2">
-            <span>{data[1].incorrect_answers[0]}</span>
+            <span>{data[i].incorrect_answers[0]}</span>
           </label>
         </div>
         <div class="form-check">
