@@ -73,6 +73,10 @@ place-items: center;
   height: 6.5rem;
   border-radius: 50%;
   border:none;
+  transition: 1.5s;
+}
+#start:hover{
+  transform: scale(2);
 }
 h1{
   position: fixed;
