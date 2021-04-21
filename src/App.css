@@ -66,7 +66,7 @@ display: grid;
 place-items: center;
 } */
 #start{
-  color: yellow;
+  color: white;
   font-size: 28px !important;
   background-color: #000C40;
   width: 6.5rem;
@@ -74,8 +74,23 @@ place-items: center;
   border-radius: 50%;
   border:none;
   transition: 1.5s;
+  outline: none;
 }
 #start:hover{
+  transform: scale(2);
+}
+#start1{
+  color: white;
+  font-size: 28px !important;
+  background-color: #000C40;
+  width: 6.5rem;
+  height: 6.5rem;
+  border-radius: 50%;
+  border:none;
+  transition: 1.5s;
+  outline: none;
+}
+#start1:hover{
   transform: scale(2);
 }
 h1{
@@ -89,7 +104,8 @@ h1{
   padding: 0.5rem;
   border-radius: 1rem;
   font-weight: bold !important;
-  text-shadow: 2px 2px yellow;
+  text-shadow: 2px 2px black;
+  color: white;
 }
 .lead{
   font-size: 26px !important;

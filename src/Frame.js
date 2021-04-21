@@ -9,7 +9,7 @@ function Frame() {
         .get(`https://opentdb.com/api.php?amount=10&category=17&type=multiple`)
         .then(res => setData(res.data.results));
 }
-console.log(data);
+
     const [score,setScore]=useState([0,0,0,0,0,0,0,0,0,0]);
     const[i,setI]=useState(0);
     const[k,setK]=useState(0);
@@ -17,7 +17,7 @@ console.log(data);
     const [inputs, setInputs] = useState("");
     const next=()=>{
         setK(k+1);
-        if(inputs===data[`${i}`].correct_answer){
+        if(inputs===data[i].correct_answer){
           var newScore=[...score];
           newScore[i]=1;
           setScore(newScore);}
@@ -58,100 +58,100 @@ console.log(data);
               {
         data.length===0?<div><h1>Welcome to Quiz App</h1><br/><br/><br/>
         <center><button id="start" onClick={()=>(loadData())}>Start</button></center></div>:`${k}`<10?<div className="main">
-        <div className="ques"><p>Q{i+1}) {data[`${i}`].question}</p></div>
-        {/* {`${i}`>8? <div className="score">{score.reduce((a, b) => a + b, 0)}</div>:""} */}
+        <div className="ques"><p>Q{i+1}) {data[i].question}</p></div>
+        {/* {i>8? <div className="score">{score.reduce((a, b) => a + b, 0)}</div>:""} */}
         <div className="option">
         {l<4?	<div className="random"><div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[`${i}`].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[i].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios1">
-            <span>{data[`${i}`].correct_answer}</span>
+            <span>{data[i].correct_answer}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[`${i}`].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[i].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios2">
-            <span>{data[1].incorrect_answers[0]}</span>
+            <span>{data[i].incorrect_answers[0]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[`${i}`].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[i].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios3">
-            <span>{data[`${i}`].incorrect_answers[1]}</span>
+            <span>{data[i].incorrect_answers[1]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[`${i}`].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[i].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlForr="gridRadios4">
-            <span>{data[`${i}`].incorrect_answers[2]}</span>
+            <span>{data[i].incorrect_answers[2]}</span>
           </label>
         </div></div>:l<6?<div className="random"><div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[`${i}`].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[i].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios2">
-            <span>{data[1].incorrect_answers[0]}</span>
+            <span>{data[i].incorrect_answers[0]}</span>
           </label>
         </div>
 	<div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[`${i}`].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[i].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios1">
-            <span>{data[`${i}`].correct_answer}</span>
+            <span>{data[i].correct_answer}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[`${i}`].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[i].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios3">
-            <span>{data[`${i}`].incorrect_answers[1]}</span>
+            <span>{data[i].incorrect_answers[1]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[`${i}`].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[i].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios4">
-            <span>{data[`${i}`].incorrect_answers[2]}</span>
+            <span>{data[i].incorrect_answers[2]}</span>
           </label>
         </div></div>:l<8?<div className="random"><div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[`${i}`].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[i].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios2">
-            <span>{data[1].incorrect_answers[0]}</span>
+            <span>{data[i].incorrect_answers[0]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[`${i}`].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[i].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios3">
-            <span>{data[`${i}`].incorrect_answers[1]}</span>
+            <span>{data[i].incorrect_answers[1]}</span>
           </label>
         </div>
 	<div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[`${i}`].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[i].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios1">
-            <span>{data[`${i}`].correct_answer}</span>
+            <span>{data[i].correct_answer}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[`${i}`].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[i].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios4">
-            <span>{data[`${i}`].incorrect_answers[2]}</span>
+            <span>{data[i].incorrect_answers[2]}</span>
           </label>
         </div></div>:<div className="random"><div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[`${i}`].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value={data[i].incorrect_answers[0]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios2">
             <span>{data[1].incorrect_answers[0]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[`${i}`].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value={data[i].incorrect_answers[1]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios3">
-            <span>{data[`${i}`].incorrect_answers[1]}</span>
+            <span>{data[i].incorrect_answers[1]}</span>
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[`${i}`].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value={data[i].incorrect_answers[2]} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios4">
-            <span>{data[`${i}`].incorrect_answers[2]}</span>
+            <span>{data[i].incorrect_answers[2]}</span>
           </label>
         </div>
 	<div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[`${i}`].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
+          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value={data[i].correct_answer} onChange={(e) => setInputs(e.target.value)}/>
           <label class="form-check-label" htmlFor="gridRadios1">
-            <span>{data[`${i}`].correct_answer}</span>
+            <span>{data[i].correct_answer}</span>
           </label>
         </div></div>}
         </div>
@@ -160,7 +160,7 @@ console.log(data);
         <button type="button" class="btn1" onClick={()=>{next()}}>Next </button>
         </div>
       </div>:<div><h1>Thankyou For Attempting !</h1><br/><p className="lead">Your Score is {score.reduce((a, b) => a + b, 0)} out of 10. </p><br/><br/>
-        <center><button id="start" onClick={()=>(reset())}>Restart</button></center></div>
+        <center><button id="start1" onClick={()=>(reset())}>Restart</button></center></div>
       }
         
             
