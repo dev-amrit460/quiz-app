@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
+import Music from './Music.mp3';
 
 function Frame() {
   const [data, setData] = useState([]);
-
+  let audio = new Audio(Music);
   const loadData = () => {
+    audio.play();
     axios
         .get(`https://opentdb.com/api.php?amount=10&type=multiple`)
         .then(res => setData(res.data.results));
@@ -17,6 +19,7 @@ function Frame() {
     const[l,setL]=useState(0);
     const [inputs, setInputs] = useState("");
     const next=()=>{
+        audio.play();
         setK(k+1);
         if(inputs===data[i].correct_answer){
           var newScore=[...score];
@@ -42,6 +45,7 @@ function Frame() {
       setL(Math.random()*10);
     }
     const reset=()=>{
+      audio.play();
       setScore([0,0,0,0,0,0,0,0,0,0]);
       setK(0);
       setI(0);

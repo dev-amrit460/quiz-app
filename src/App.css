@@ -37,6 +37,7 @@
 .option{
   height: 50%;
   background-color:#dde1e7;
+  color: #000C40;
   padding-left: 1rem;
   font-weight: bold;
   display: flex;
@@ -161,12 +162,14 @@ h1::after{
 }
 .lead{
   font-size: 20px !important;
-  font-weight: bold !important;
+  font-weight: bolder !important;
   text-align: center;
-  color: blue;
-  box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94,104,121,.288);
-  line-height: 250%;
-  border-radius: 1rem;
+  color: #05209b;
+  border-left: 7px solid #05209b;
+  border-right: 7px solid #05209b;
+  /* box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94,104,121,.288); */
+  line-height: 180%;
+  border-radius: 8px;
 }
 .random{
   height: 100%;
